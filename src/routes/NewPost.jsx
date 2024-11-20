@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { PiEyedropperSample } from "react-icons/pi";
-import classes from "./NewPost.module.css"
-import Modal from "../components/Modal";
+import { Link } from 'react-router-dom';
 
-function NewPost({ onCancel, onAddPost }){
+import { PiEyedropperSample } from "react-icons/pi";
+import Modal from "../components/Modal";
+import classes from "./NewPost.module.css"
+
+function NewPost({ onAddPost }){
   const [ enteredBody, setEnteredBody ] = useState('');
   const [ enteredAuthor, setEnteredAuthor ] = useState('');
 
@@ -37,7 +39,9 @@ function NewPost({ onCancel, onAddPost }){
           <input type="text" id="name" required onChange={changeAuthorHandler}/>
         </p>
         <p className={classes.actions}>
-          <button type="button" onClick={onCancel}>Cancel</button>
+          <Link to=".." type="button">
+            Cancel
+          </Link>
           <button>Submit</button>
         </p>
       </form>
